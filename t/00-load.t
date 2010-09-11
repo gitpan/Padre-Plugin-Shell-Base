@@ -1,4 +1,7 @@
-#!perl -T
+#!/usr/bin/env perl
+#
+# This file is part of Padre::Plugin::Shell::Base
+# 
 
 use Test::More tests => 1;
 

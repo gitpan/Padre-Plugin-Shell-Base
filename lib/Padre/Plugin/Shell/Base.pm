@@ -9,7 +9,7 @@ use Padre::Wx       ();
 use File::Temp qw/ tempfile /;
 use YAML qw/DumpFile LoadFile/;
 
-our $VERSION = '0.1';
+our $VERSION = '0.12';
 
 ########################################################################
 #
@@ -291,39 +291,43 @@ environment variables are set prior to performing the plugin action:
 
 =over
 
-=item PE_CURRENT_WORD -- The I<word> at the caret position.
+=over
 
-=item PE_CURRENT_LINE -- The text of the current line.
+=item B<PE_CURRENT_WORD> -- The I<word> at the caret position.
 
-=item PE_COLUMN_INDEX -- The index of the position of the caret in the 
+=item B<PE_CURRENT_LINE> -- The text of the current line.
+
+=item B<PE_COLUMN_INDEX> -- The index of the position of the caret in the 
 current line (counting from 0).
 
-=item PE_COLUMN_NUMBER -- The column number of the caret in the current 
+=item B<PE_COLUMN_NUMBER> -- The column number of the caret in the current 
 line (counting from 1).
 
-=item PE_LINE_INDEX -- The index of the current line (counting from 0).
+=item B<PE_LINE_INDEX> -- The index of the current line (counting from 0).
 
-=item PE_LINE_NUMBER -- The line number of the current line (counting from 1).
+=item B<PE_LINE_NUMBER> -- The line number of the current line (counting from 1).
 
-=item PE_LINE_COUNT -- The count of lines in the document.
+=item B<PE_LINE_COUNT> -- The count of lines in the document.
 
-=item PE_BASENAME -- The file name of the current document.
+=item B<PE_BASENAME> -- The file name of the current document.
 
-=item PE_DIRECTORY -- The directory of the current document.
+=item B<PE_DIRECTORY> -- The directory of the current document.
 
-=item PE_FILEPATH -- The full path and name of the current document.
+=item B<PE_FILEPATH> -- The full path and name of the current document.
 
-=item PE_MIMETYPE -- The mime-type of the current document.
+=item B<PE_MIMETYPE> -- The mime-type of the current document.
 
-=item PE_CONFIG_DIR -- Location of the configuration directory (C<~/.padre>)
+=item B<PE_CONFIG_DIR> -- Location of the configuration directory (C<~/.padre>)
 
-=item PE_DEF_PROJ_DIR -- The default project directory.
+=item B<PE_DEF_PROJ_DIR> -- The default project directory.
 
-=item PE_INDENT_TAB -- Use tabs for indentation. 'YES' or 'NO'
+=item B<PE_INDENT_TAB> -- Use tabs for indentation. 'YES' or 'NO'
 
-=item PE_INDENT_TAB_WIDTH -- Tab width/size.
+=item B<PE_INDENT_TAB_WIDTH> -- Tab width/size.
 
-=item PE_INDENT_WIDTH -- Indentation width/size.
+=item B<PE_INDENT_WIDTH> -- Indentation width/size.
+
+=back
 
 =back
 
@@ -331,34 +335,34 @@ line (counting from 1).
 
 =head2 Document/file interaction methods
 
-=head3 append_selection_from_file ($file_pathname)
+=head4 append_selection_from_file ($file_pathname)
 
 Takes the contents of C<$file_pathname> and appends it to after 
 the selection in the current editor tab.
 
-=head3 new_document_from_file ($file_pathname, $mimetype)
+=head4 new_document_from_file ($file_pathname, $mimetype)
 
 Creates a new document from the contents in C<$file_pathname>. 
 The (optional) C<$mimetype> tells Padre what kind of document is 
 being created. If no mimetype is specified the Padre will be attempt 
 to guess the mimetype.
 
-=head3 replace_selection_from_file ($file_pathname)
+=head4 replace_selection_from_file ($file_pathname)
 
 Takes the contents of C<$file_pathname> and uses it to replace 
 the selection in the current editor tab.
 
 =head2 File utility methods
 
-=head3 get_temp_file 
+=head4 get_temp_file 
 
 Creates a temporary file and returns the pathname of the temporary file.
 
-=head3 delete_temp_file ($file_pathname)
+=head4 delete_temp_file ($file_pathname)
 
 Deletes a temporary file.
 
-=head3 slurp_file ($file_pathname)
+=head4 slurp_file ($file_pathname)
 
 Returns the contents of the specified file.
 
@@ -366,47 +370,47 @@ Returns the contents of the specified file.
 
 B<NOTE>: Plugin configurations are stored using YAML.
 
-=head3 config_file 
+=head4 config_file 
 
 Returns the pathname of a plugin configuration file.
 
-=head3 edit_config_file  
+=head4 edit_config_file  
 
 Opens the configuration file for a plugin for editing.
 
-=head3 example_config  
+=head4 example_config  
 
 Returns an example configuration for a plugin. Is to be overwritten 
 by plugins that subclass this package.
 
-=head3 get_config  
+=head4 get_config  
 
 Returns a hash containing the configuration for a plugin.
 
-=head3 initialize_config_file  
+=head4 initialize_config_file  
 
 Initializes a configuration file for a plugin using the return 
 value from C<example_config>.
 
 =head2 Environment variable methods
 
-=head3 update_environment_vars  
+=head4 update_environment_vars  
 
 Updates the environment variables supported by plugins that 
 subclass this package. See the ENVIRONMENT VARIABLES section for details.
 
 =head2 Other methods
 
-=head2 new 
+=head4 new 
 
 The cannonical new method.
 
-=head3 plugin_menu  
+=head4 plugin_menu  
 
 Returns the menu for a plugin. Is to be overwritten by plugins that 
 subclass this package.
 
-=head3 notify_of_error 
+=head4 notify_of_error 
 
 Displays an error message.
 

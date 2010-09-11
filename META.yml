@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Padre-Plugin-Shell-Base
-version:            0.1
+version:            0.12
 abstract:           A base class for Padre plugins.
 author:
     - Gregory Siems <gsiems@gmail.com>
