@@ -9,7 +9,7 @@ use Padre::Wx       ();
 use File::Temp qw/ tempfile /;
 use YAML qw/DumpFile LoadFile/;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 ########################################################################
 #
@@ -91,7 +91,7 @@ sub update_environment_vars {
         $ENV{PE_FILEPATH}  = $document->filename();
         $ENV{PE_BASENAME}  = $document->basename();
         $ENV{PE_DIRECTORY} = $document->dirname();
-        $ENV{PE_MIMETYPE}  = $document->get_mimetype();
+        $ENV{PE_MIMETYPE}  = $document->mimetype();
     }
 }
 
